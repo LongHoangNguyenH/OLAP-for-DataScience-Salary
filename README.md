@@ -19,7 +19,7 @@ This dataset include more than 50000 records, each record contain 29 columns lik
 We collected this dataset from [Here](https://www.kaggle.com/datasets/jackogozaly/data-science-and-stem-salaries)
 
 ## Design system and Built Data pipeline by SSIS
-Based on the Data we collected we decide to devide our data to seven Dimention
+Based on the Data we collected we decide to devide our data to seven Dimentions
 + Company
 + Title
 + Tag
