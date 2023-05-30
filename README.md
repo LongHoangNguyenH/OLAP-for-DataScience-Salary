@@ -30,10 +30,13 @@ Based on the Data we collected we decide to devide our data into seven Dimention
 
 Then we have to build each Data pipeline for each dimention
 ![Dim_Time image](./image/Dim_time.png "An optional title")
+Then we do the same for other columns
 
-here is picture of schema
-
-
+Finally, we have a system like this. Oh, and it also depends on what system you want to design.
+but this is one way to reference.
+![Datapipeline image](./image/Datapipeline.png "An optional title")
+Remember to change datatype when you load data to flat file connection
 ## SSAS
-
+here is picture of schema
+![Dim_Time image](./image/Schema.png "An optional title")
 ## DataMining
