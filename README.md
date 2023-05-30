@@ -29,7 +29,7 @@ Based on the Data we collected we decide to devide our data into seven Dimention
 + Level
 
 Then we have to build each Data pipeline for each dimention
-![Dim_Time image](./image/example.jpg "An optional title")
+![Dim_Time image](./image/Dim_time.png "An optional title")
 
 here is picture of schema
 
