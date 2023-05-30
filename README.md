@@ -38,5 +38,5 @@ but this is one way to reference.
 Remember to change datatype when you load data to flat file connection
 ## SSAS
 here is picture of schema
-![Dim_Time image](./image/Schema.png "An optional title")
+![Schema image](./image/Schema.png "An optional title")
 ## DataMining
