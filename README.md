@@ -37,6 +37,6 @@ but this is one way to reference.
 ![Datapipeline image](./image/Datapipeline.png "An optional title")
 Remember to change datatype when you load data to flat file connection
 ## SSAS
-here is picture of schema
+here is picture of schema\\
 ![Schema image](./image/Schema.png "An optional title")
 ## DataMining
