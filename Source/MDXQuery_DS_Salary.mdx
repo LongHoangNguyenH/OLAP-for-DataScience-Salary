@@ -1,0 +1,82 @@
+﻿--3.2.1	Lấy thông tin gồm tên tên công việc, lương cơ bản về các vị trí công việc có mức lương trên 200000 của công ty Facebook
+SELECT NON EMPTY [Measures].[Basesalary] ON COLUMNS,
+NON EMPTY (FILTER ([Dim Tag].[Tag].CHILDREN,[Measures].[Basesalary]>200000)) ON ROWS 
+FROM [Db Salary]
+WHERE [Dim Company].[Company].&[Facebook];
+
+--3.2.2	Tìm kiếm các vị trí công việc có mức lương cao nhất trong TOP15 ở thành phố New York
+SELECT NON EMPTY [Measures].[Basesalary] ON COLUMNS,
+NON EMPTY (TOPCOUNT(({[Dim Title].[Title].CHILDREN},{[Dim Company].[Company].CHILDREN}),15,[Measures].[Basesalary])) ON ROWS
+FROM [Db Salary]
+WHERE [Dim City].[Location].&[New york];
+
+--3.2.3	Đếm số nhân sự ở từng vai trò của từng công ty
+SELECT NON EMPTY [Measures].[Fact Count] ON COLUMNS,
+NON EMPTY ([Dim Title].[Title].CHILDREN,[Dim Company].[Company].CHILDREN) ON ROWS
+FROM [Db Salary];
+
+--3.2.4	Đếm số vị trí có title là Software Engineer mà công ty trả lương theo từng năm, từng tháng
+SELECT NON EMPTY [Measures].[Fact Count] ON COLUMNS,
+NON EMPTY ([Dim Time].[Year].CHILDREN,[Dim Time].[Month].CHILDREN,[Dim Company].[Company].CHILDREN) ON ROWS
+FROM [Db Salary]
+WHERE [Dim Title].[Title].&[Software Engineer];
+
+--3.2.5	Tại thành phố London thống kê xem top 5 công ty trả lương cao nhất
+SELECT NON EMPTY [Measures].[Basesalary] ON COLUMNS,
+NON EMPTY (TOPCOUNT([Dim Company].[Company].CHILDREN,5,[Measures].[Basesalary])) ON ROWS
+FROM [Db Salary]
+WHERE [Dim City].[Location].&[London];
+
+--3.2.6	Thống kê số vị trí theo từng level của vai trò Data Scientist của từng công ty
+SELECT NON EMPTY [Measures].[Fact Count] ON COLUMNS,
+NON EMPTY ([Dim Level].[Level].CHILDREN,[Dim Company].[Company].CHILDREN) ON ROWS
+FROM [Db Salary]
+WHERE [Dim Title].[Title].&[Data Scientist];
+
+--3.2.7	Thống kê mức lương cơ bản theo từng vị trí mà Google đã trả cho nhân viên
+SELECT NON EMPTY [Measures].[Basesalary] AS [Base Salary] ON COLUMNS,
+NON EMPTY ([Dim Tag].[Tag].CHILDREN AS [Position]) ON ROWS
+FROM [Db Salary]
+WHERE [Dim Company].[Company].&[Google];
+
+--3.2.8 Thống kê level, mức lương giảm dần vị trí full stack, của công ty Facebook ở thành phố San francisco
+SELECT NON EMPTY [Measures].[Basesalary] ON COLUMNS,
+NON EMPTY ORDER([Dim Level].[Level].CHILDREN,[Measures].[Basesalary], DESC) ON ROWS
+FROM [Db Salary]
+WHERE ({[Dim Company].[Company].&[Facebook]},{[Dim Tag].[Tag].&[full stack]},{[Dim City].[Location].&[San Francisco]});
+
+--3.2.9	Thống kê mức lương cơ bản cho những vị trí học vấn tiến sĩ, giới tính nữ ở công ty Microsoft
+SELECT NON EMPTY [Measures].[Basesalary] ON COLUMNS,
+NON EMPTY ORDER([Dim Tag].[Tag].CHILDREN,[Measures].[Basesalary], DESC) ON ROWS
+FROM [Db Salary]
+WHERE ({[Dim Company].[Company].&[Microsoft]},{[Fact].[Gender].&[Female]},{[Dim Education].[Education].&[PhD]});
+
+--3.2.10	Liệt kê top 3 vị trí có số năm kinh nghiệm lớn nhất của vai trò Data Scientist và mức lương của vị trí đó trong quý 2 năm 2020
+SELECT NON EMPTY [Measures].[Basesalary] ON COLUMNS,
+NON EMPTY TOPCOUNT ([Dim Tag].[Tag].CHILDREN, 3, [Measures].[Yearsofexperience]) ON ROWS
+FROM [Db Salary]
+WHERE ( {[Dim Title].[Title].&[Data Scientist]}, {[Dim Time].[Quarter].&[2]}, {[Dim Time].[Year].&[2020]});
+
+--3.2.11	Thống kê tổng tiền thưởng theo mỗi vai trò của từng công ty trong quý 2 năm 2020
+SELECT NON EMPTY [Measures].[Bonus] ON COLUMNS,
+NON EMPTY ([Dim Title].[Title].CHILDREN,[Dim Company].[Company].CHILDREN) ON ROWS
+FROM [Db Salary]
+WHERE ( {[Dim Time].[Quarter].&[2]}, {[Dim Time].[Year].&[2020]});
+
+--3.2.12	Thống kê vị trí có số lương cơ bản cao nhất trong năm 2020 của công ty Microsoft
+SELECT NON EMPTY SUM([Measures].[Basesalary]) ON COLUMNS,
+NON EMPTY TOPCOUNT ([Dim Tag].[Tag].CHILDREN, 1,[Measures].[Basesalary] ) ON ROWS
+FROM [Db Salary]
+WHERE ({[Dim Time].[Year].&[2020]},{[Dim Company].[Company].&[Microsoft]});
+
+--3.2.13 Thống kê số chi nhánh của công ty Facebook ở trong các thành phố
+SELECT NON EMPTY [Measures].[Fact Count] ON COLUMNS,
+NON EMPTY [Dim City].[Location].CHILDREN ON ROWS
+FROM [Db Salary]
+WHERE ({[Dim Company].[Company].&[Facebook]});
+
+--3.2.14	Liệt kê top 10 công ty có nhiều Product Manager có giới tính nữ nhất trong năm 2019
+SELECT NON EMPTY [Measures].[Fact Count] ON COLUMNS,
+NON EMPTY TOPCOUNT ([Dim Company].[Company].CHILDREN, 10,[Measures].[Fact Count] ) ON ROWS
+FROM [Db Salary]
+WHERE ({[Dim Time].[Year].&[2019]},{[Fact].[Gender].&[Female]},{[Dim Title].[Title].&[Product Manager]});
