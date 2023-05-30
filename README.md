@@ -9,7 +9,7 @@
 # Table of Content
 1. [Introduction](#1-Introduction)
 2. [Design system and Build Data pipeline by SSIS](#2-Design system and Build Data pipeline by SSIS)
-3. [Analysis using SSAS and DBMS](#3-Analysis using SSAS and DBMS)
+3. [Analysis using SSAS and SQL DBMS](#3-Analysis using SSAS and SQL DBMS)
 4. [Data Mining](#4-Data Mining)
 
 ## Introduction
@@ -34,6 +34,6 @@ Then we have to build each Data pipeline for each dimention
 here is picture of schema
 
 
-## Analysis using SSAS and DBMS
+## Analysis using SSAS and SQL DBMS
 
 ## Data Mining
