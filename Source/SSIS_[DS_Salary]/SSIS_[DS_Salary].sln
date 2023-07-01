@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "SSIS_[DS_Salary]", "SSIS_[DS_Salary]\SSIS_[DS_Salary].dtproj", "{28147DB0-5B8B-41D2-8F3E-3E4CC0624C4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28147DB0-5B8B-41D2-8F3E-3E4CC0624C4E}.Development|Default.ActiveCfg = Development
+		{28147DB0-5B8B-41D2-8F3E-3E4CC0624C4E}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8035975-46A2-4EC8-9259-4EDD3E13A9DD}
+	EndGlobalSection
+EndGlobal
