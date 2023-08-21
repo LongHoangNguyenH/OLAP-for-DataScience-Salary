@@ -48,4 +48,9 @@ we use OLS technique to find the best model for our dataset.
 
 ![OLS result Yearofexperience](./image/OLS_2.png "OLS_2")
 
+Histogram of some characteristics 
+![Histogram](./image/Histogram.png "histogram")
+
+You can see more in file Datamining.ipynb from Datamining folder
+
 
