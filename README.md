@@ -43,7 +43,9 @@ here is picture of schema.
 ## DataMining
 We use two Machine Learning Algorithm to do this work, they are Kmeans and KNN
 we use OLS technique to find the best model for our dataset.
+
 ![OLS result Education](./image/OLS_1.png "OLS_1")
+
 ![OLS result Yearofexperience](./image/OLS_2.png "OLS_2")
-![image](https://github.com/LongHoangNguyenH/OLAP-for-DataScience-Salary/assets/79389744/9656a883-c9f0-476d-857b-67c59d95c91f)
+
 
